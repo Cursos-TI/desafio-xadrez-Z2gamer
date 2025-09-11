@@ -4,6 +4,8 @@
 const int MOV_BISPO = 5;
 const int MOV_TORRE = 5;
 const int MOV_RAINHA = 8;
+const int MOV_CAVALO_Baixo = 2;
+const int MOV_CAVALO_Esquerda = 1;
 
 int main() {
     // Movimentação do Bispo: Diagonal superior direita (Cima + Direita)
@@ -29,5 +31,15 @@ int main() {
         r++;
     } while (r < MOV_RAINHA);
 
+    //Movimentção do Vacalo: Duas para baixo e Uma para esquerda
+    printf("\nMovimentção do Cavalo:\n");
+    int e = 0;
+    for (int c = 0; c < MOV_CAVALO_Baixo; c++){
+        printf("Baixo\n");
+        while (e < MOV_CAVALO_Esquerda && c == 1){
+            printf("Esquerda\n");
+            e++;
+        } 
+    }
     return 0;
 }
