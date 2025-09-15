@@ -7,48 +7,61 @@ const int MOV_RAINHA = 8;
 const int MOV_CAVALO_Baixo = 2;
 const int MOV_CAVALO_Esquerda = 1;
 
-int main() {
-    // Movimentação do Bispo: Diagonal superior direita (Cima + Direita)
-    printf("Movimentação do Bispo:\n");
+//Recursividadde do Bispo
+void Mov_BispoLoop(int b){
     for (int b = 0; b < MOV_BISPO; b++) {
         printf("Cima\n");
-        printf("Direita\n");
+        int B=0;
+        while (B<MOV_BISPO){
+            printf("Direita\n");
+            B++;
+            break;
+        }
     }
+}
+
+//Recursividade da Torre
+void Mov_TorreLoop(int t){
+    if(t < MOV_TORRE){
+        printf("Direita\n");
+        Mov_TorreLoop(t+1);
+    }
+}
+
+//Recursividade da Rainha
+void Mov_Rainhaloop(int r){
+    if (r < MOV_RAINHA){
+        printf("Esquerda\n");
+        Mov_Rainhaloop(r+1);
+    }
+    
+}
+
+int main() {
+    // Movimentação do Bispo: Diagonal superior direita (Cima + Direita)
+    printf("\nMovimentação do Bispo:\n");
+    char Bispo;
+    Mov_BispoLoop(Bispo);
 
     // Movimentação da Torre: Direita
     printf("\nMovimentação da Torre:\n");
-    int t = 0;
-    while (t < MOV_TORRE) {
-        printf("Direita\n");
-        t++;
-    }
-
+    char Cavalo;
+    Mov_TorreLoop(Cavalo);
+    
     // Movimentação da Rainha: Esquerda
     printf("\nMovimentação da Rainha:\n");
-    int r = 0;
-    do {
-        printf("Esquerda\n");
-        r++;
-    } while (r < MOV_RAINHA);
-
-    //Movimentção do Vacalo: Duas para baixo e Uma para esquerda
+    char Rainha;
+    Mov_Rainhaloop(Rainha);
+    
+    //Movimentção do Cavalo: Duas para cima e Uma para direita
     printf("\nMovimentção do Cavalo:\n");
     int e = 0;
     for (int c = 0; c < MOV_CAVALO_Baixo; c++){
-        printf("Baixo\n");
+        printf("Cima\n");
         while (e < MOV_CAVALO_Esquerda && c == 1){
-            printf("Esquerda\n");
+            printf("Direita\n");
             e++;
         } 
     }
+    return 0;
 }
-   
-
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
-
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
-
-  
